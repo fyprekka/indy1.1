@@ -1,0 +1,75 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* Token warna: biru (logo) + kuning (aksen/CTA). Ubah di sini, seluruh situs ikut berubah. */
+:root {
+  --background: #fafaf8;
+  --foreground: #12203a;
+  --card: #ffffff;
+  --card-foreground: #12203a;
+  --popover: #ffffff;
+  --popover-foreground: #12203a;
+  --primary: #1b46a6;            /* biru utama */
+  --primary-foreground: #ffffff;
+  --secondary: #eef1f7;
+  --secondary-foreground: #0e2455;
+  --muted: #f1f2ee;
+  --muted-foreground: #5b6578;
+  --accent: #e7edfa;             /* tint biru untuk hover */
+  --accent-foreground: #0e2455;
+  --destructive: #c62828;
+  --border: #dfe3ea;
+  --input: #dfe3ea;
+  --ring: #1b46a6;
+  --radius: 0.625rem;
+  --navy: #0e2455;               /* biru tua: footer, band CTA */
+  --sun: #f6b800;                /* kuning: CTA & aksen */
+}
+
+@theme inline {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Bricolage Grotesque", "Plus Jakarta Sans", ui-sans-serif, sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-navy: var(--navy);
+  --color-sun: var(--sun);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * { @apply border-border outline-ring/50; }
+  body { @apply bg-background text-foreground font-sans antialiased; }
+  h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.02em; }
+}
+
+/* Elemen khas: pita meteran (garis ukur kuning) sebagai pemisah hero. */
+.tape {
+  height: 28px;
+  background-color: var(--sun);
+  background-image:
+    repeating-linear-gradient(90deg, var(--navy) 0 2px, transparent 2px 12px),
+    repeating-linear-gradient(90deg, var(--navy) 0 2px, transparent 2px 60px);
+  background-size: 100% 10px, 100% 18px;
+  background-repeat: repeat-x;
+  background-position: 0 0, 0 0;
+}
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
